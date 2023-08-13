@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  client:
+    depends_on:
+      - server
+    bulid: ./client
+    ports:
+      -3000:3000
+  server:
+    depends_on:
+      - db
+    build: ./server
+    ports:
+      -3001:3001
+  db:
+    image: mongo:4.0-xenial
+    ports:
+      -27017:27017
+     
+volumes:
+mywebapp:
